@@ -14,6 +14,26 @@ const calculator = await inquirer.prompt([
         type: "list",
         name: "operator",
         message: "Select operation to perform: ",
-        choices: ["Addition +", "Subtraction -", "Multiplication x", "Division /"]
+        choices: ["+", "-", "x", "/"]
     }
 ]);
+const { numberOne, numberTwo, operator } = calculator;
+if (numberOne && numberTwo && operator) {
+    let result;
+    if (operator === "+") {
+        result = numberOne + numberTwo;
+    }
+    else if (operator === "-") {
+        result = numberOne - numberTwo;
+    }
+    else if (operator === "x") {
+        result = numberOne * numberTwo;
+    }
+    else if (operator === "/") {
+        result = numberOne / numberTwo;
+    }
+    console.log(`Answer: ${result}`);
+}
+else {
+    console.log("Input is not valid. Try again!");
+}
